@@ -1,0 +1,30 @@
+module Padrino
+  module Generators
+    class ErrorsExplamation < Thor::Group
+      # Add this generator to our padrino-gen
+      Padrino::Generators.add_generator(:errors_explanation, self)
+
+      # Define the source template root
+      def self.source_root; File.expand_path(File.dirname(__FILE__)); end
+      def self.banner; "padrino-gen errors_explanation"; end
+
+      # Include related modules
+      include Thor::Actions
+      include Padrino::Generators::Actions
+
+      desc "Description:\n\n\tpadrino-gen errors_explanation"
+
+      # Create default templates. 
+      def create_templates
+        ext = fetch_component_choice(:renderer)
+        self.destination_root = options[:root]
+        if in_app_root?
+          template "templates/#{ext}/_error_messages.#{ext}.tt", destination_root("/app/views/shared/_error_messages.html.#{ext}")
+          template "templates/#{ext}/_error_message.#{ext}.tt",  destination_root("/app/views/shared/_error_message.html.#{ext}")
+        else
+          say "You are not at the root of a Padrino application! (config/boot.rb not found)"
+        end
+      end
+    end # AdminPage
+  end # Generators
+end # Padrino

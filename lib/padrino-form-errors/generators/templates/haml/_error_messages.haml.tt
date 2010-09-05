@@ -1,0 +1,5 @@
+.errors-explanation
+  %h3 #{object.class.to_s.underscore} couldn not be saved
+  %ul
+    - object.errors.full_messages.each do |msg|
+      %li= msg

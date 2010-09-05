@@ -1,0 +1,8 @@
+<div class="errors-explanation">
+  <h3><%= object.class.to_s.underscore %> couldn not be saved</h3>
+  <ul>
+    <%- object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <%- end %>
+  </ul>
+</div>
