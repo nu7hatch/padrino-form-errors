@@ -9,7 +9,7 @@ Install plugin via rubygems:
 
   gem install padrino-form-errors
   
-And register plugin in your +app.rb+ file:
+And register plugin in your <tt>app.rb</tt> file:
 
   class MyApp < Padrino::Application
     register Padrino::Helpers
@@ -21,10 +21,10 @@ Now you can run generator:
 
   padrino-gen form_errors
   
-Now in +app/views/shared+ you'll two new partials should be present:
+Now in <tt>app/views/shared</tt> you'll two new partials should be present:
 
-+_error_messages.html.*+ :: template for error_messages_for
-+_error_message.html.*+  :: template for error_message_on
+<tt>_error_messages.html.*</tt> :: template for error_messages_for
+<tt>_error_message.html.*</tt>  :: template for error_message_on
 
 == Overriding templates
 
