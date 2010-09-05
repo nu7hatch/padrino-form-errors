@@ -1,6 +1,49 @@
-= padrino-form-explanations
+= Padrino form errors helper
 
-Description goes here.
+This plugin is overriding standard +error_messages_for+ and +error_message_on+. 
+Now you can decide in which template will be displayed your validation messages. 
+
+== Installation
+
+Install plugin via rubygems:
+
+  gem install padrino-form-errors
+  
+And run generator:
+
+  padrino-gen form_errors
+  
+In your +app/views/shared+ you'll find two new partials:
+
++_error_messages.html.*+ :: template for error_messages_for
++_error_message.html.*+  :: template for error_message_on
+
+== Overriding templates
+
+You can freely modify views listed above. In +_error_messages+ you can use
+following local variables:
+
++object+ :: main object passed in arguments (or associated with form)
++errors+ :: merged list with errors
+
+In +_error_message+ there are following local variables:
+
++object+ :: object passed in arguments (or associated with form)
++field+  :: field name passed in arguments
++error+  :: error message
+
+== Usage
+
+You don't have to learn nothing new about how to use functionalities provided
+by this plugin. Like I said it overrides standard helpers, so when you will
+write... 
+
+  - form_for @user, url(:users_create) do |f|
+    = f.error_messages
+    -# ...
+    
+...then error messages for this form will be displayed using from your shared
+templates. The same is with +error_messages_for+ and +error_message_on+. 
 
 == Note on Patches/Pull Requests
  
