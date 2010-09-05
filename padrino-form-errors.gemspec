@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{padrino-form-errors}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kriss 'nu7hatch' Kowalik"]
@@ -28,7 +28,8 @@ Gem::Specification.new do |s|
      "lib/padrino-form-errors/generators/templates/erb/_error_messages.erb.tt",
      "lib/padrino-form-errors/generators/templates/haml/_error_message.haml.tt",
      "lib/padrino-form-errors/generators/templates/haml/_error_messages.haml.tt",
-     "lib/padrino-form-errors/helpers/form_helpers.rb"
+     "lib/padrino-form-errors/helpers/form_helpers.rb",
+     "padrino-form-errors.gemspec"
   ]
   s.homepage = %q{http://github.com/nu7hatch/padrino-form-errors}
   s.rdoc_options = ["--charset=UTF-8"]
