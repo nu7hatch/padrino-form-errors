@@ -1,8 +1,11 @@
 <div class="errors-explanation">
   <h3><%= object.class.human_name %> couldn not be saved</h3>
   <ul>
-    <%- object.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <%- objects.each do |o| %>
+      <%- o.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <%- end -%>
     <%- end %>
   </ul>
 </div>
+

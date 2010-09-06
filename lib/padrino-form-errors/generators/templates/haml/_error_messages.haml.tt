@@ -1,5 +1,6 @@
 .errors-explanation
-  %h3 #{object.class.human_name} couldn not be saved
+  %h3 #{object.class.human_name} could not be saved
   %ul
-    - object.errors.full_messages.each do |msg|
-      %li= msg
+    - objects.each do |o|
+      - o.errors.full_messages.each do |msg|
+        %li= msg

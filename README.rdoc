@@ -26,13 +26,22 @@ Now in <tt>app/views/shared</tt> you'll two new partials should be present:
 <tt>_error_messages.html.*</tt> :: template for error_messages_for
 <tt>_error_message.html.*</tt>  :: template for error_message_on
 
+You can freely modify views listed above.
+
 == Overriding templates
 
-You can freely modify views listed above. In +_error_messages+ you can use
-following local variables:
+In +_error_messages+ you can use following local variables:
 
-+object+ :: main object passed in arguments (or associated with form)
-+errors+ :: merged list with errors
++object+  :: main object passed in arguments (or associated with form)
++objects+ :: list of all objects passed in arguments
+
+You can display all errors using <tt>#errors</tt> method from specified object, eg:
+
+  %h3= #{object.class.human_name} couldn't be saved
+  %ul
+    - objects.each do |o|
+      - o.errors.full_messages.each do |msg|
+        %li= msg  
 
 In +_error_message+ there are following local variables:
 

@@ -12,6 +12,7 @@ module Padrino
         #     -# ...
         # 
         def error_messages_for(*objects)
+          errors = 0
           objects.map! do |object| 
             if object.is_a? Symbol 
               instance_variable_get("@#{object}")
@@ -20,10 +21,10 @@ module Padrino
             else
               object 
             end
+            errors += object.errors.size and object
           end
-          errors = objects.map {|object| object.errors }.flatten
-          if errors.size > 0
-            partial "shared/error_messages", :locals => { :object => objects.first, :errors => errors }
+          if errors > 0
+            partial "shared/error_messages", :locals => { :object => objects.first, :objects => objects }
           end 
         end
         
